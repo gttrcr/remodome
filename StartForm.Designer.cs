@@ -96,7 +96,7 @@
             this.Controls.Add(this.button_avvia);
             this.Controls.Add(this.button_montatura);
             this.Controls.Add(this.button_pannello);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            //this.Icon = ((System.Drawing.Icon)(resources.GetObject("ico.ico")));
             this.Name = "StartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Avvio...";

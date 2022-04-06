@@ -1,8 +1,5 @@
-﻿using System;
-using System.Drawing;
-using System.IO.Ports;
+﻿using System.IO.Ports;
 using System.Reflection;
-using System.Windows.Forms;
 
 namespace RemoDome
 {
@@ -560,7 +557,7 @@ namespace RemoDome
                     label_posizione_cupola.Text = "---";
 
                     RiceviDatiMONT(":KA#:KA#");
-                    ARDU.WriteLine("Q");
+                    //ARDU.WriteLine("Q");
                     richTextBoxCommunication.Text += Environment.NewLine + "Send Q to Arduino. N.:17";
                     Funzioni.Wait(90000, progressBar);
                     Messaggi.Show("Parcheggio avvenuto con successo");

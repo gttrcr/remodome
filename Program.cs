@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace ScriptGenerator
+namespace RemoDome
 {
     static class Program
     {
@@ -16,7 +10,14 @@ namespace ScriptGenerator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new StartForm());
         }
     }
 }
+
+/*
+1. forzare tutti i sensori sulla posizione dei piedini
+2. aggiungere il sensore di nord ed il piedono 
+3. Togliere tutta la didascalia dei controlli della seriale
+4. Togliere tutti i controlli di modifica della seriale
+*/

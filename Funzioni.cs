@@ -1,12 +1,6 @@
-﻿using System;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net.NetworkInformation;
+﻿using System.Net.NetworkInformation;
 using System.Reflection;
-using System.Windows.Forms;
 using System.Diagnostics;
-using System.Threading;
 
 namespace RemoDome
 {

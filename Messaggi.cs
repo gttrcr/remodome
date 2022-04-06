@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace RemoDome
+﻿namespace RemoDome
 {
     public static class Messaggi
     {
