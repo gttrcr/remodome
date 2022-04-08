@@ -1,6 +1,7 @@
-﻿#define POS_PARK /*****************/ 227
+#define POS_PARK /*****************/ 227
 #define POS_EST /******************/ 101
 #define POS_OVEST /****************/ 334
+#define POS_NORD /*****************/ 450
 #define ON /***********************/ 0
 #define OFF /**********************/ 1
 #define DESTRA /*******************/ 3
@@ -16,6 +17,7 @@
 
 #define OVEST /********************/ 23
 #define EST /**********************/ 25
+#define NORD /*********************/ 41
 #define IMPULSI /******************/ 27
 #define HOMING /*******************/ 29
 #define CUPOLA_CHIUSA /************/ 31
@@ -45,6 +47,7 @@ void setup()
   pinMode(CUPOLA_CHIUSA, INPUT);
   pinMode(EST, INPUT);
   pinMode(OVEST, INPUT);
+  pinMode(NORD, INPUT);
   pinMode(SENSORE_PIOGGIA, INPUT);
   pinMode(STATO_SELETTORE_PIOGGIA, INPUT);
   pinMode(STATO_PANNELLO, INPUT);
@@ -62,6 +65,7 @@ void setup()
   digitalWrite(CUPOLA_CHIUSA, OFF);
   digitalWrite(EST, OFF);
   digitalWrite(OVEST, OFF);
+  digitalWrite(NORD, OFF);
   digitalWrite(SENSORE_PIOGGIA, OFF);
   digitalWrite(PANNELLO_ON, OFF);
   digitalWrite(PANNELLO_OFF, OFF);
@@ -73,7 +77,7 @@ void setup()
 int piedi = POS_PARK, dir, tempo = 1000;
 byte currentState = 0;
 byte previousState = 0;
-bool apply = true;
+// bool apply = true;
 
 // LETTERE UTILIZZATE: D d S s T t F V v C c A G g P B Q R I E X K
 
@@ -81,7 +85,7 @@ void loop()
 {
   switch (Serial.read())
   {
-    apply = true;
+    // apply = true;
 
   // Destra
   case 'D':
@@ -98,7 +102,7 @@ void loop()
     delay(tempo);
     digitalWrite(DESTRA, OFF);
     digitalWrite(SINISTRA, OFF);
-    apply = false;
+    // apply = false;
     break;
 
   // Sinistra
@@ -116,7 +120,7 @@ void loop()
     delay(tempo);
     digitalWrite(DESTRA, OFF);
     digitalWrite(SINISTRA, OFF);
-    apply = false;
+    // apply = false;
     break;
 
   // Ferma rotazione
@@ -353,16 +357,12 @@ void loop()
 
   previousState = currentState;
 
-  if (digitalRead(HOMING) == ON && apply)
-  {
+  if (digitalRead(HOMING) == ON)
     piedi = POS_PARK;
-  }
-  if (digitalRead(EST) == ON && apply)
-  {
+  else if (digitalRead(EST) == ON)
     piedi = POS_EST;
-  }
-  if (digitalRead(OVEST) == ON && apply)
-  {
+  else if (digitalRead(OVEST) == ON)
     piedi = POS_OVEST;
-  }
+  else if (digitalRead(NORD) == ON)
+    piedi = POS_NORD;
 }

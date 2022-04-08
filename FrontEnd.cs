@@ -14,7 +14,7 @@ namespace RemoDome
             try
             {
                 InitializeComponent();
-                Text += " " + Assembly.GetEntryAssembly().GetName().Version;
+                Text += " " + Assembly.GetEntryAssembly()?.GetName().Version;
 
                 webBrowser.Navigate(new Uri(Funzioni.cameraIP));
 
@@ -434,7 +434,6 @@ namespace RemoDome
 
                     Funzioni.SetStatus("MONTATURA", "ON");
                     button_accendi_pannello.Visible = false;
-                    Messaggi.ShowWarning("ATTENZIONE!! Settare la porta seriale della montatura da tastierino.\n\t- Menù\n\t- Impostazioni\n\t- Porta GPS\n\t- Seriale\n\t- OK");
                     ARDU.WriteLine("VG");
                     richTextBoxCommunication.Text += Environment.NewLine + "Send VG to Arduino. N.:9";
                     button_accendi.Text = "Spegni montatura";
@@ -449,8 +448,8 @@ namespace RemoDome
                 }
                 else if (Funzioni.GetStatus("MONTATURA").Equals("ON"))
                 {
-                    if (Messaggi.YesNo("ATTENZIONE!! Settare la porta GPS della montatura da tastierino.\n\t- Menù\n\t- Impostazioni\n\t- Porta GPS\n\t- GPS\n\t- OK\n\nE' stato fatto?") == DialogResult.Yes)
-                    {
+                    //if (Messaggi.YesNo("ATTENZIONE!! Settare la porta GPS della montatura da tastierino.\n\t- Menù\n\t- Impostazioni\n\t- Porta GPS\n\t- GPS\n\t- OK\n\nE' stato fatto?") == DialogResult.Yes)
+                    //{
                         ARDU.WriteLine("A");
                         richTextBoxCommunication.Text += Environment.NewLine + "Send A to Arduino. N.:10";
                         Messaggi.Show("Spegnimento montatura, non sarà possibile agire sul programma...");
@@ -461,7 +460,7 @@ namespace RemoDome
                         button_accendi_pannello.Visible = true;
                         button_accendi.Text = "Accendi montatura";
                         button_accendi.BackColor = Color.Red;
-                    }
+                    //}
                 }
             }
             catch (Exception ex)
