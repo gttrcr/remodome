@@ -173,7 +173,7 @@ void loop()
 
   // Comunica il numero di piedi
   case 'P':
-    Serial.print(piedi);
+    Serial.println(piedi);
     break;
 
   // Comunica lo stato del portellone
@@ -183,22 +183,22 @@ void loop()
     {
       if (digitalRead(CUPOLA_CHIUSA) == ON)
       {
-        Serial.print("M");
+        Serial.println("M");
       }
       else if (digitalRead(CUPOLA_CHIUSA) == OFF)
       {
-        Serial.print("C");
+        Serial.println("C");
       }
     }
     else if (digitalRead(CUPOLA_APERTA) == OFF)
     {
       if (digitalRead(CUPOLA_CHIUSA) == ON)
       {
-        Serial.print("A");
+        Serial.println("A");
       }
       else if (digitalRead(CUPOLA_CHIUSA) == OFF)
       {
-        Serial.print("O");
+        Serial.println("O");
       }
     }
     break;
