@@ -183,22 +183,22 @@ void loop()
     {
       if (digitalRead(CUPOLA_CHIUSA) == ON)
       {
-        Serial.println("M");
+        Serial.print("M");
       }
       else if (digitalRead(CUPOLA_CHIUSA) == OFF)
       {
-        Serial.println("C");
+        Serial.print("C");
       }
     }
     else if (digitalRead(CUPOLA_APERTA) == OFF)
     {
       if (digitalRead(CUPOLA_CHIUSA) == ON)
       {
-        Serial.println("A");
+        Serial.print("A");
       }
       else if (digitalRead(CUPOLA_CHIUSA) == OFF)
       {
-        Serial.println("O");
+        Serial.print("O");
       }
     }
     break;
